@@ -1,0 +1,33 @@
+{
+  "name": "sanitizeai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:mcp": "tsx watch src/ai/dev.ts",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+  "express": "*",
+  "cors": "*",
+  "zod": "*",
+    "next": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-hook-form": "*"
+  },
+  "devDependencies": {
+    "@types/express": "*",
+    "@types/cors": "*",
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "tsx": "*",
+    "typescript": "*",
+    "tailwindcss": "*",
+    "postcss": "*",
+    "autoprefixer": "*"
+  }
+}
