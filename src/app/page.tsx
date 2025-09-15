@@ -11,7 +11,7 @@ export default function Page() {
     e.preventDefault();
     setLogs((l) => [...l, 'Submitting...']);
 
-    // Call server action via fetch to /api/sanitize (we'll wire minimal endpoint)
+  // Call API to start sanitization
     const res = await fetch('/api/sanitize', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

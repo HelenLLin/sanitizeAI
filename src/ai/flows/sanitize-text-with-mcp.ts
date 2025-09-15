@@ -29,7 +29,7 @@ export async function sanitizeTextWithMCP(
   onProgress?.('select_tool');
   const { text: userText, sanitizationRequest } = inputSchema.parse(raw);
 
-  // Use ai.generate (stub) to pick tool name — real implementation should call Genkit
+  // Pick a tool (stub or model) to use
   const choice = await ai.chooseTool({ text: userText, intent: sanitizationRequest, tools: toolList.tools });
   if (!choice || !choice.name) throw new Error('Model did not choose a tool');
   onProgress?.(`tool_selected:${choice.name}`);

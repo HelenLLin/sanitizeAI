@@ -2,7 +2,7 @@
 
 import { sanitizeTextWithMCP } from '../ai/flows/sanitize-text-with-mcp';
 
-// Simple stream helper with an async iterator and getReader() compatible API.
+// Simple streaming helper. Returns getReader() with a read() method.
 export async function getSanitizedTextStreamAction(data: { text: string; sanitizationRequest: string }) {
   const queue: Array<any> = [];
   let done = false;
@@ -25,7 +25,7 @@ export async function getSanitizedTextStreamAction(data: { text: string; sanitiz
     async next() {
       if (queue.length) return { done: false, value: queue.shift() };
       if (done) return { done: true, value: undefined };
-      // wait for next value
+  // wait a bit for new items
       await new Promise((resolve) => setTimeout(resolve, 50));
       if (queue.length) return { done: false, value: queue.shift() };
       if (done) return { done: true, value: undefined };

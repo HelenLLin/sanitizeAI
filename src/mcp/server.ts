@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 const PORT = Number(process.env.MCP_PORT ?? 9003);
 
-// Simple in-memory tools registry for demo purposes.
+// In-memory list of available tools for the demo
 type Tool = {
   name: string;
   description: string;
@@ -38,7 +38,7 @@ app.get('/mcp/tools', (_req, res) => {
 
 const inputSchema = z.object({ text: z.string() });
 
-// Execute a tool by name; for the demo we'll do simple regex-based redaction/anonymization
+// Call a tool by name. This demo uses regex rules to sanitize text.
 app.post('/mcp/call/:tool', (req, res) => {
   const { tool } = req.params;
   const body = req.body;
